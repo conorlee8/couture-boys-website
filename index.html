@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Couture Boys Coop - Fresh Farm Eggs in Westhampton, NY</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #c8d6e5;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #333;
+        }
+
+        .order-btn {
+            background: #000;
+            color: #c8d6e5;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #000;
+        }
+
+        .order-btn:hover {
+            background: #c8d6e5;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4rem 0;
+            text-align: center;
+            color: #000;
+            margin: 2rem 0;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 3px solid #000;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: none;
+            color: #000;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: none;
+            color: #000;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        /* Meet the Boys Grid */
+        .boys-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Card flip animations */
+        .boy-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #000;
+            perspective: 1000px;
+            cursor: pointer;
+            height: 280px;
+            position: relative;
+        }
+
+        .boy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: #c8d6e5;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .boy-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 1.5rem;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-front {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .card-back {
+            background: rgba(255, 255, 255, 0.95);
+            transform: rotateY(180deg);
+        }
+
+        .boy-card h3 {
+            color: #000;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chicken-emoji {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .chicken-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid #000;
+        }
+
+        /* Modern Order Form Styles */
+        .order-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0;
+            border-radius: 20px;
+            margin-top: 2rem;
+            border: 2px solid #000;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-progress {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: #c8d6e5;
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(200, 214, 229, 0.3);
+            border-radius: 3px;
+            margin-top: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #c8d6e5;
+            width: 0%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .form-sections {
+            padding: 2rem;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .form-section {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .form-section:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section h3 {
+            margin-bottom: 1.5rem;
+            color: #000;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-icon {
+            font-size: 1.3rem;
+        }
+
+        /* Floating Label Input */
+        .floating-label {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .floating-input {
+            width: 100%;
+            padding: 20px 16px 8px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .floating-input:focus {
+            outline: none;
+            border-color: #000;
+            background: #c8d6e5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-input:valid {
+            border-color: #28a745;
+            background: rgba(40, 167, 69, 0.05);
+        }
+
+        .floating-label label {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0 4px;
+        }
+
+        .floating-input:focus+label,
+        .floating-input:not(:placeholder-shown)+label {
+            top: 0;
+            transform: translateY(-50%);
+            font-size: 0.75rem;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .floating-input:valid+label {
+            color: #28a745;
+        }
+
+        /* Modern Select */
+        .modern-select {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .modern-select select {
+            width: 100%;
+            padding: 16px 16px 16px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            font-family: inherit;
+        }
+
+        .modern-select select:focus {
+            outline: none;
+            border-color: #000;
+            background: #c8d6e5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modern-select::after {
+            content: '▼';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            transition: transform 0.3s ease;
+            color: #666;
+        }
+
+        .modern-select:hover::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .modern-select label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #000;
+            font-size: 0.9rem;
+        }
+
+        /* Modern Textarea */
+        .modern-textarea {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .modern-textarea textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+        }
+
+        .modern-textarea textarea:focus {
+            outline: none;
+            border-color: #000;
+            background: #c8d6e5;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .modern-textarea label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #000;
+            font-size: 0.9rem;
+        }
+
+        /* Modern Submit Button */
+        .modern-submit {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: #c8d6e5;
+            padding: 20px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .modern-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(200, 214, 229, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .modern-submit:hover::before {
+            left: 100%;
+        }
+
+        .modern-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #333 0%, #000 100%);
+        }
+
+        .modern-submit:active {
+            transform: translateY(-1px);
+        }
+
+        /* Loading state */
+        .modern-submit.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .modern-submit.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            margin: auto;
+            border: 2px solid transparent;
+            border-top-color: #c8d6e5;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .main-content {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .form-sections {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .form-section {
+                padding: 1rem;
+            }
+
+            .floating-input {
+                padding: 18px 14px 6px 14px;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .chicken-emoji {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 10% auto;
+            padding: 0;
+            border: none;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            animation: modalSlideIn 0.4s ease-out;
+            overflow: hidden;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .modal-header h2 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            color: white;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .modal-body p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .farm-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .farm-info h3 {
+            margin: 0 0 0.5rem 0;
+            color: #ffffff;
+            font-size: 1.2rem;
+        }
+
+        .farm-info p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .close-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            min-width: 150px;
+        }
+
+        .close-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(238, 90, 36, 0.3);
+        }
+
+        .close-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive modal */
+        @media (max-width: 600px) {
+            .modal-content {
+                margin: 5% auto;
+                width: 95%;
+            }
+
+            .modal-header,
+            .modal-body {
+                padding: 1.5rem;
+            }
+
+            .modal-header .success-icon {
+                font-size: 3rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo-main.png" alt="The Couture Boys Coop Logo" class="logo-image"
+                        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+                    <div class="brand-name">The Couture Boys</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#boys">Meet Our Flock</a></li>
+                        <li><a href="#order">Order Eggs</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#order" class="order-btn">Order Now</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Fresh Farm Eggs Daily</h1>
+            <p>Brothers Beau & Ronan Couture and their 14 chickens with personality, delivering the freshest eggs in
+                Westhampton, NY</p>
+            <a href="#order" class="order-btn">Get Your Fresh Eggs</a>
+        </section>
+
+        <main class="main-content">
+            <section id="about" class="section">
+                <h2>About Our Farm</h2>
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Welcome to The Couture Boys Coop!
+                    We're a family-operated chicken farm in beautiful Westhampton, NY, run by brothers Beau and Ronan
+                    Couture. Our 14 beloved chickens each have their own personality and provide the freshest, most
+                    delicious eggs you'll find on Long Island.</p>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🥚</div>
+                        <h3 style="color: #000; margin-bottom: 1rem;">Fresh Daily</h3>
+                        <p>Collected fresh every morning for maximum flavor and nutrition</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌱</div>
+                        <h3 style="color: #000; margin-bottom: 1rem;">Free Range</h3>
+                        <p>Our chickens roam freely and eat a natural, healthy diet</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">❤️</div>
+                        <h3 style="color: #000; margin-bottom: 1rem;">Loved & Cared For</h3>
+                        <p>Each chicken has a name and receives individual attention</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="boys" class="section">
+                <h2>Meet Our Flock</h2>
+                <p style="text-align: center; margin-bottom: 2rem; font-style: italic;">Our famous flock of 14 chickens,
+                    each with their own unique personality - lovingly cared for by Beau & Ronan</p>
+
+                <div class="boys-grid">
+                    <div class="boy-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="chicken-emoji">🐔</div>
+                                <h3>Moon Walker</h3>
+                                <p>Our mysterious night owl who loves to strut under the moonlight</p>
+                            </div>
+                            <div class="card-back">
+                                <img src="https://picsum.photos/120/120?random=1" alt="Moon Walker"
+                                    class="chicken-photo">
+                                <h3>Moon Walker</h3>
+                                <p>Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boy-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="chicken-emoji">🐓</div>
+                                <h3>Whitney Houston</h3>
+                                <p>The diva of the coop with the most beautiful morning songs</p>
+                            </div>
+                            <div class="card-back">
+                                <img src="https://picsum.photos/120/120?random=2" alt="Whitney Houston"
+                                    class="chicken-photo">
+                                <h3>Whitney Houston</h3>
+                                <p>Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boy-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="chicken-emoji">🐔</div>
+                                <h3>Goldie Hawn</h3>
+                                <p>Golden feathers and a sunny disposition that lights up the farm</p>
+                            </div>
+                            <div class="card-back">
+                                <img src="https://picsum.photos/120/120?random=3" alt="Goldie Hawn"
+                                    class="chicken-photo">
+                                <h3>Goldie Hawn</h3>
+                                <p>Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boy-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="chicken-emoji">🐓</div>
+                                <h3>Ursula</h3>
+                                <p>The gentle giant with the biggest heart in the coop</p>
+                            </div>
+                            <div class="card-back">
+                                <img src="https://picsum.photos/120/120?random=4" alt="Ursula" class="chicken-photo">
+                                <h3>Ursula</h3>
+                                <p>Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boy-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="chicken-emoji">🐔</div>
+                                <h3>Barbie</h3>
+                                <p>Pretty in pink (well, red) with impeccable style</p>
+                            </div>
+                            <div class="card-back">
+                                <img src="https://picsum.photos/120/120?random=5" alt="Barbie" class="chicken-photo">
+                                <h3>Barbie</h3>
+                                <p>Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boy-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="chicken-emoji">🐓</div>
+                                <h3>Peggy</h3>
+                                <p>The sharpest hen with the best aim for the nesting boxes</p>
+                            </div>
+                            <div class="card-back">
+                                <img src="https://picsum.photos/120/120?random=6" alt="Peggy" class="chicken-photo">
+                                <h3>Peggy</h3>
+                                <p>Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boy-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="chicken-emoji">🐔</div>
+                                <h3>Milk Flyer</h3>
+                                <p>The adventurous one who dreams of flying beyond the fence</p>
+                            </div>
+                            <div class="card-back">
+                                <img src="https://picsum.photos/120/120?random=7" alt="Milk Flyer"
+                                    class="chicken-photo">
+                                <h3>Milk Flyer</h3>
+                                <p>Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boy-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="chicken-emoji">🐓</div>
+                                <h3>Millie</h3>
+                                <p>Sweet as milk and twice as charming</p>
+                            </div>
+                            <div class="card-back">
+                                <img src="https://picsum.photos/120/120?random=8" alt="Millie" class="chicken-photo">
+                                <h3>Millie</h3>
+                                <p>Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="boy-card" onclick="flipCard(this)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <div class="chicken-emoji">🐔</div>
+                                <h3>GOODIE</h3>
+                                <p>The goodest chicken who never causes any trouble</p>
+                            </div>
+                            <div class="card-back">
+                                <img src="https://picsum.photos/120/120?random=9" alt="GOODIE" class="chicken-photo">
+                                <h3>GOODIE</h3>
+                                <p>Click to flip back</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="order" class="section">
+                <h2>Order Fresh Eggs</h2>
+                <p style="text-align: center; margin-bottom: 2rem;">Ready to taste the difference? Order your fresh eggs
+                    today and join our growing list of satisfied customers!</p>
+
+                <div class="order-form">
+                    <div class="form-progress">
+                        <div>Complete Your Order</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <small id="progressText">0% Complete</small>
+                    </div>
+
+                    <form id="orderForm" class="form-sections">
+                        <div class="form-section">
+                            <h3><span class="section-icon">👤</span>Your Information</h3>
+
+                            <div class="floating-label">
+                                <input type="text" id="name" name="name" class="floating-input" placeholder=" "
+                                    required>
+                                <label for="name">Full Name</label>
+                            </div>
+
+                            <div class="floating-label">
+                                <input type="email" id="email" name="email" class="floating-input" placeholder=" "
+                                    required>
+                                <label for="email">Email Address</label>
+                            </div>
+
+                            <div class="floating-label">
+                                <input type="tel" id="phone" name="phone" class="floating-input" placeholder=" ">
+                                <label for="phone">Phone Number (Optional)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><span class="section-icon">🥚</span>Your Order</h3>
+
+                            <div class="modern-select">
+                                <label for="quantity">Number of Dozen</label>
+                                <select id="quantity" name="quantity" required>
+                                    <option value="">Select quantity</option>
+                                    <option value="1">1 Dozen - $6</option>
+                                    <option value="2">2 Dozen - $11 (Save $1!)</option>
+                                    <option value="3">3 Dozen - $15 (Save $3!)</option>
+                                    <option value="4">4+ Dozen - Contact us for pricing</option>
+                                </select>
+                            </div>
+
+                            <div class="modern-select">
+                                <label for="delivery">Delivery Method</label>
+                                <select id="delivery" name="delivery" required>
+                                    <option value="">Choose delivery option</option>
+                                    <option value="pickup">🚗 Farm Pickup (Free)</option>
+                                    <option value="local">🚚 Local Delivery (+$2)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section" id="deliverySection" style="display: none;">
+                            <h3><span class="section-icon">📍</span>Delivery Details</h3>
+
+                            <div class="modern-textarea">
+                                <label for="address">Delivery Address</label>
+                                <textarea id="address" name="address"
+                                    placeholder="Enter your full address including street, city, and zip code"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3><span class="section-icon">💭</span>Special Requests</h3>
+
+                            <div class="modern-textarea">
+                                <label for="notes">Additional Notes (Optional)</label>
+                                <textarea id="notes" name="notes"
+                                    placeholder="Any special requests, preferred delivery times, or questions for Beau & Ronan?"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="modern-submit">
+                            <span>🥚 Place Your Order</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>Contact Us</h2>
+                <div style="text-align: center;">
+                    <p style="font-size: 1.2rem; margin-bottom: 1rem;">📍 Westhampton, NY</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">📧 Email us for availability and orders</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">🥚 Fresh eggs collected daily</p>
+                    <div
+                        style="background: rgba(255, 255, 255, 0.9); padding: 2rem; border-radius: 15px; margin-top: 2rem; border: 2px solid #000;">
+                        <h3 style="color: #000; margin-bottom: 1rem;">Current Availability</h3>
+                        <p style="font-size: 1.1rem;">✅ We're currently taking steady orders!</p>
+                        <p style="margin-top: 1rem;">Our 14 chickens are laying consistently, ensuring fresh eggs are
+                            available for our customers.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 The Couture Boys Coop - Fresh Farm Eggs in Westhampton, NY</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Made with ❤️ for our feathered friends and
+                their fans</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize EmailJS with your public key
+        emailjs.init("BOXq_OTRxp6p170Eu");
+
+        // Enhanced Form handling with EmailJS - CORRECTED TEMPLATE ID
+        document.getElementById('orderForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Add loading state
+            const submitBtn = document.querySelector('.modern-submit');
+            submitBtn.classList.add('loading');
+            submitBtn.innerHTML = '';
+
+            // Collect form data
+            const formData = new FormData(this);
+            const orderData = {
+                from_name: formData.get('name'),
+                reply_to: formData.get('email'),
+                phone: formData.get('phone') || 'Not provided',
+                quantity: formData.get('quantity'),
+                delivery: formData.get('delivery'),
+                address: formData.get('address') || 'N/A (Pickup)',
+                notes: formData.get('notes') || 'None',
+                order_time: new Date().toLocaleString()
+            };
+
+            // Send email via EmailJS - FIXED TEMPLATE ID
+            emailjs.send('service_b314v98', 'template_9d190rd', orderData)
+                .then(function () {
+                    // Success!
+                    showOrderConfirmation();
+
+                    // Reset form and button
+                    document.getElementById('orderForm').reset();
+                    updateProgress();
+                    submitBtn.classList.remove('loading');
+                    submitBtn.innerHTML = '<span>🥚 Place Your Order</span>';
+                })
+                .catch(function (error) {
+                    // Error handling
+                    console.error('EmailJS Error:', error);
+                    alert('😔 Oops! Something went wrong. Please try again or contact us directly.');
+
+                    // Reset button
+                    submitBtn.classList.remove('loading');
+                    submitBtn.innerHTML = '<span>🥚 Place Your Order</span>';
+                });
+        });
+
+        // Progress tracking
+        function updateProgress() {
+            const form = document.getElementById('orderForm');
+            const inputs = form.querySelectorAll('input[required], select[required]');
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+
+            let filledInputs = 0;
+            inputs.forEach(input => {
+                if (input.value.trim() !== '') {
+                    filledInputs++;
+                }
+            });
+
+            const progress = (filledInputs / inputs.length) * 100;
+            progressFill.style.width = progress + '%';
+            progressText.textContent = Math.round(progress) + '% Complete';
+        }
+
+        // Real-time progress updates
+        document.getElementById('orderForm').addEventListener('input', updateProgress);
+        document.getElementById('orderForm').addEventListener('change', updateProgress);
+
+        // Show/hide delivery section based on delivery method
+        document.getElementById('delivery').addEventListener('change', function () {
+            const deliverySection = document.getElementById('deliverySection');
+            const addressField = document.getElementById('address');
+
+            if (this.value === 'local') {
+                deliverySection.style.display = 'block';
+                addressField.required = true;
+            } else {
+                deliverySection.style.display = 'none';
+                addressField.required = false;
+                addressField.value = '';
+            }
+            updateProgress();
+        });
+
+        // Initialize progress
+        updateProgress();
+
+        // Card flipping function
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        // Modal functions
+        function showOrderConfirmation() {
+            document.getElementById('orderModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('orderModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+    <!-- Order Confirmation Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="success-icon">🎉</span>
+                <h2>Order Sent Successfully!</h2>
+            </div>
+            <div class="modal-body">
+                <p><strong>Thank you for your order!</strong></p>
+
+                <div class="farm-info">
+                    <h3>🐔 The Couture Boys Coop</h3>
+                    <p>Beau & Ronan will contact you within 24 hours to confirm your fresh egg delivery and arrange
+                        pickup/delivery details.</p>
+                </div>
+
+                <p>📍 <strong>Westhampton, NY</strong><br>
+                    🥚 <strong>Fresh farm eggs daily</strong><br>
+                    ❤️ <strong>From our 14 beloved chickens</strong></p>
+
+                <button class="close-btn" onclick="closeModal()">
+                    Perfect! Close
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
