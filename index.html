@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Couture Boys Coop - Fresh Farm Eggs in Westhampton, NY</title>
+
+    <!-- Modern Google Fonts - Add this -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         * {
@@ -14,7 +22,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: #000;
             background: #c8d6e5;
@@ -27,11 +35,11 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Enhanced Header */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -49,13 +57,45 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
+        }
+
+        .logo-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
         .brand-name {
-            font-size: 2rem;
-            font-weight: bold;
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
             color: #000;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .brand-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #666;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
         }
 
         nav ul {
@@ -70,6 +110,7 @@
             color: #000;
             font-weight: 500;
             transition: color 0.3s ease;
+            letter-spacing: -0.01em;
         }
 
         nav a:hover {
@@ -82,9 +123,10 @@
             padding: 12px 24px;
             border-radius: 25px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
             border: 2px solid #000;
+            letter-spacing: -0.01em;
         }
 
         .order-btn:hover {
@@ -106,10 +148,13 @@
         }
 
         .hero h1 {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
             font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 1rem;
             text-shadow: none;
             color: #000;
+            letter-spacing: -0.03em;
         }
 
         .hero p {
@@ -117,6 +162,7 @@
             margin-bottom: 2rem;
             text-shadow: none;
             color: #000;
+            font-weight: 400;
         }
 
         /* Main Content */
@@ -133,10 +179,13 @@
         }
 
         .section h2 {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
             font-size: 2.5rem;
+            font-weight: 700;
             color: #000;
             margin-bottom: 1.5rem;
             text-align: center;
+            letter-spacing: -0.02em;
         }
 
         /* Meet the Boys Grid */
@@ -206,9 +255,12 @@
         }
 
         .boy-card h3 {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
             color: #000;
             font-size: 1.3rem;
+            font-weight: 600;
             margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
         }
 
         .chicken-emoji {
@@ -241,7 +293,7 @@
             color: #c8d6e5;
             padding: 1.5rem;
             text-align: center;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .progress-bar {
@@ -285,9 +337,11 @@
             margin-bottom: 1.5rem;
             color: #000;
             font-size: 1.2rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            letter-spacing: -0.01em;
         }
 
         .section-icon {
@@ -308,7 +362,7 @@
             font-size: 1rem;
             background: rgba(255, 255, 255, 0.9);
             transition: all 0.3s ease;
-            font-family: inherit;
+            font-family: 'Inter', sans-serif;
         }
 
         .floating-input:focus {
@@ -344,7 +398,7 @@
             transform: translateY(-50%);
             font-size: 0.75rem;
             color: #000;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .floating-input:valid+label {
@@ -367,7 +421,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             appearance: none;
-            font-family: inherit;
+            font-family: 'Inter', sans-serif;
         }
 
         .modern-select select:focus {
@@ -396,7 +450,7 @@
         .modern-select label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: bold;
+            font-weight: 600;
             color: #000;
             font-size: 0.9rem;
         }
@@ -417,7 +471,7 @@
             transition: all 0.3s ease;
             resize: vertical;
             min-height: 100px;
-            font-family: inherit;
+            font-family: 'Inter', sans-serif;
         }
 
         .modern-textarea textarea:focus {
@@ -430,7 +484,7 @@
         .modern-textarea label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: bold;
+            font-weight: 600;
             color: #000;
             font-size: 0.9rem;
         }
@@ -443,13 +497,15 @@
             border: none;
             border-radius: 25px;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.4s ease;
             width: 100%;
             position: relative;
             overflow: hidden;
             margin-top: 1rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
         }
 
         .modern-submit::before {
@@ -516,9 +572,27 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            header {
+                padding: 1rem 0;
+            }
+
+            .logo-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .brand-name {
+                font-size: 1.6rem;
+            }
+
+            .brand-tagline {
+                font-size: 0.75rem;
+            }
+
             .header-content {
                 justify-content: center;
                 gap: 1rem;
+                flex-direction: column;
             }
 
             .hero h1 {
@@ -547,6 +621,20 @@
 
             .floating-input {
                 padding: 18px 14px 6px 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                gap: 15px;
+            }
+
+            .brand-name {
+                font-size: 1.4rem;
+            }
+
+            .brand-tagline {
+                font-size: 0.7rem;
             }
         }
 
@@ -640,10 +728,12 @@
         }
 
         .modal-header h2 {
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
             color: #2c3e50;
             margin: 0;
             font-size: 1.8rem;
             font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .modal-body {
@@ -651,6 +741,7 @@
             color: white;
             text-align: center;
             line-height: 1.6;
+            font-family: 'Inter', sans-serif;
         }
 
         .modal-body p {
@@ -670,6 +761,8 @@
             margin: 0 0 0.5rem 0;
             color: #ffffff;
             font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         .farm-info p {
@@ -690,6 +783,8 @@
             transition: all 0.3s ease;
             margin-top: 1rem;
             min-width: 150px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
         }
 
         .close-btn:hover {
@@ -729,9 +824,11 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="logo-main.png" alt="The Couture Boys Coop Logo" class="logo-image"
-                        style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
-                    <div class="brand-name">The Couture Boys</div>
+                    <img src="logo-main.png" alt="The Couture Boys Coop Logo" class="logo-image">
+                    <div class="brand-info">
+                        <div class="brand-name">The Couture Boys Coop</div>
+                        <div class="brand-tagline">Fresh Farm Eggs • Westhampton, NY</div>
+                    </div>
                 </div>
                 <nav>
                     <ul>
@@ -745,7 +842,6 @@
             </div>
         </div>
     </header>
-
     <div class="container">
         <section class="hero">
             <h1>Fresh Farm Eggs Daily</h1>
