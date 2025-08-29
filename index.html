@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Couture Boys Coop - Fresh Farm Eggs in Westhampton, NY</title>
 
-    <!-- Modern Google Fonts - Add this -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -21,12 +20,222 @@
             box-sizing: border-box;
         }
 
+        :root {
+            /* Beach Coral Color Palette */
+            --soft-coral: #FFB5A7;
+            --peach: #FCD5CE;
+            --blush: #F8EDEB;
+            --sage-green: #9CAF88;
+            --seafoam: #C7E9E0;
+            --sand: #F9DCC4;
+            --terracotta: #E27D60;
+            --dusty-blue: #85CDCA;
+            --cream: #FEF5EF;
+            --charcoal: #4A4A4A;
+            --white: #FFFFFF;
+        }
+
         body {
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #000;
-            background: #c8d6e5;
+            color: var(--charcoal);
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* BACKGROUND OPTION 6: Ocean Breeze - Light Blues and Greens */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #e3f2fd 0%, #e8f5e9 50%, #f1f8e9 100%);
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(129, 199, 232, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(165, 214, 167, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(178, 223, 219, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(197, 225, 165, 0.3) 0%, transparent 50%);
+            animation: drift 25s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes drift {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(-20px, 10px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(10px, -20px) rotate(-1deg);
+            }
+
+            75% {
+                transform: translate(20px, 15px) rotate(2deg);
+            }
+        }
+
+        /* BACKGROUND OPTION 2: Geometric Mesh (uncomment to use)
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #ffeaa7, #fdcb6e);
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(30deg, #f39c12 12%, transparent 12.5%, transparent 87%, #f39c12 87.5%, #f39c12),
+                linear-gradient(150deg, #f39c12 12%, transparent 12.5%, transparent 87%, #f39c12 87.5%, #f39c12),
+                linear-gradient(30deg, #f39c12 12%, transparent 12.5%, transparent 87%, #f39c12 87.5%, #f39c12),
+                linear-gradient(150deg, #f39c12 12%, transparent 12.5%, transparent 87%, #f39c12 87.5%, #f39c12);
+            background-size: 80px 140px;
+            background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+            opacity: 0.05;
+            animation: shift 10s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes shift {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(40px); }
+        }
+        */
+
+        /* BACKGROUND OPTION 3: Gradient Orbs (uncomment to use)
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #fff5ec 0%, #ffe4d6 100%);
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 181, 167, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(252, 213, 206, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(248, 237, 235, 0.3) 0%, transparent 50%);
+            animation: float-orbs 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes float-orbs {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-20px, -20px) scale(1.1); }
+            66% { transform: translate(20px, -10px) scale(0.9); }
+        }
+        */
+
+        /* BACKGROUND OPTION 4: Minimalist Gradient (uncomment to use)
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body::before, body::after {
+            display: none;
+        }
+        */
+
+        /* BACKGROUND OPTION 5: Animated Blobs (uncomment to use)
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fafafa;
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffb5a7' fill-opacity='0.3' d='M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,165.3C672,181,768,235,864,245.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            animation: wave-move 10s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes wave-move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        */
+
+        /* Subtle Beach Elements */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .beach-element {
+            position: absolute;
+            font-size: 1.2rem;
+            animation: gentle-drift 20s ease-in-out infinite;
+        }
+
+        @keyframes gentle-drift {
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px) rotate(0deg);
+            }
+
+            33% {
+                transform: translateY(-15px) translateX(15px) rotate(5deg);
+            }
+
+            66% {
+                transform: translateY(10px) translateX(-10px) rotate(-5deg);
+            }
         }
 
         .container {
@@ -35,38 +244,38 @@
             padding: 0 20px;
         }
 
-        /* Enhanced Header */
+        /* Clean Beachy Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
+            background: var(--white);
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            border-bottom: 2px solid #000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--peach);
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
         }
 
         .logo-image {
-            width: 120px;
-            height: 120px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--terracotta);
             transition: transform 0.3s ease;
         }
 
@@ -77,398 +286,458 @@
         .brand-info {
             display: flex;
             flex-direction: column;
-            gap: 4px;
         }
 
         .brand-name {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: #000;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--charcoal);
             letter-spacing: -0.02em;
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
         .brand-tagline {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.7rem;
             font-weight: 500;
-            color: #666;
-            letter-spacing: 0.02em;
+            color: var(--terracotta);
             text-transform: uppercase;
-        }
-
-        .desktop-nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .desktop-nav a {
-            text-decoration: none;
-            color: #000;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            letter-spacing: -0.01em;
-        }
-
-        .desktop-nav a:hover {
-            color: #333;
-        }
-
-        .order-btn {
-            background: #000;
-            color: #c8d6e5;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid #000;
-            letter-spacing: -0.01em;
-        }
-
-        .order-btn:hover {
-            background: #c8d6e5;
-            color: #000;
-            transform: translateY(-2px);
-        }
-
-        /* Mobile Navigation Styles */
-        .mobile-menu-btn {
             display: none;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu-btn {
             background: none;
             border: none;
             cursor: pointer;
+            display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
+            gap: 4px;
             padding: 8px;
-            transition: all 0.3s ease;
         }
 
         .hamburger-line {
             width: 24px;
             height: 3px;
-            background: #000;
-            margin: 2px 0;
-            transition: all 0.3s ease;
+            background: var(--navy);
             border-radius: 2px;
+            transition: all 0.3s ease;
         }
 
-        .mobile-menu-btn:hover .hamburger-line {
-            background: #333;
-        }
-
-        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        .mobile-nav-overlay {
+        .desktop-nav {
             display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(2px);
-            z-index: 998;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .mobile-nav-overlay.active {
-            display: block;
-            opacity: 1;
         }
 
         .mobile-nav {
             position: fixed;
-            top: 0;
-            right: -100%;
-            width: 320px;
-            max-width: 90vw;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            z-index: 999;
-            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--sand);
+            padding: 1rem;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            z-index: 99;
         }
 
         .mobile-nav.active {
-            right: 0;
+            transform: translateY(0);
         }
 
-        .mobile-nav-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2rem 1.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-brand {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #000;
-        }
-
-        .mobile-close-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            width: 32px;
-            height: 32px;
-            position: relative;
-            padding: 0;
-        }
-
-        .close-line {
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: #000;
-            top: 50%;
-            left: 50%;
-            border-radius: 1px;
-        }
-
-        .close-line:nth-child(1) {
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-
-        .close-line:nth-child(2) {
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
-
-        .mobile-nav-links {
-            flex: 1;
+        .mobile-nav ul {
             list-style: none;
-            padding: 2rem 0;
-            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
-        .mobile-nav-links li {
-            margin: 0;
-        }
-
-        .mobile-nav-links a {
+        .mobile-nav a {
             display: block;
-            padding: 1rem 1.5rem;
+            padding: 12px 16px;
             text-decoration: none;
-            color: #000;
+            color: var(--navy);
             font-weight: 500;
-            font-size: 1.1rem;
+            border-radius: 8px;
             transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+            text-align: center;
         }
 
-        .mobile-nav-links a:hover {
-            background: rgba(200, 214, 229, 0.3);
-            border-left-color: #000;
-            transform: translateX(5px);
+        .mobile-nav a:hover {
+            background: var(--sand);
         }
 
         .mobile-order-btn {
-            background: linear-gradient(135deg, #000 0%, #333 100%) !important;
-            color: #c8d6e5 !important;
-            margin: 1rem 1.5rem !important;
-            border-radius: 25px !important;
-            text-align: center !important;
-            font-weight: 600 !important;
-            border-left: none !important;
-        }
-
-        .mobile-order-btn:hover {
-            background: linear-gradient(135deg, #333 0%, #000 100%) !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-        }
-
-        .mobile-nav-footer {
-            padding: 1.5rem;
-            text-align: center;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .mobile-nav-footer p {
-            margin: 0.25rem 0;
+            background: var(--coral);
+            color: var(--white) !important;
+            font-weight: 600;
+            margin-top: 0.5rem;
         }
 
         /* Hero Section */
         .hero {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 4rem 0;
+            background: var(--white);
+            padding: 2rem 1.5rem;
             text-align: center;
-            color: #000;
-            margin: 2rem 0;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 3px solid #000;
+            margin: 1.5rem auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            max-width: 900px;
         }
 
         .hero h1 {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: 3.5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            text-shadow: none;
-            color: #000;
+            color: var(--navy);
             letter-spacing: -0.03em;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            text-shadow: none;
-            color: #000;
-            font-weight: 400;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--driftwood);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Main Content */
+        .order-btn {
+            background: var(--coral);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(232, 168, 124, 0.4);
+        }
+
+        /* Main Content with glassmorphism */
         .main-content {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            margin: 1.5rem auto;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            max-width: 1100px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .section {
             margin-bottom: 3rem;
+            text-align: center;
         }
 
         .section h2 {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            font-size: 2.5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
             font-weight: 700;
-            color: #000;
+            color: var(--charcoal);
             margin-bottom: 1.5rem;
-            text-align: center;
             letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
         }
 
-        /* Meet the Boys Grid */
-        .boys-grid {
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--soft-coral), var(--terracotta));
+            border-radius: 2px;
+        }
+
+        /* About Cards - Flip and expand */
+        .about-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        /* Card flip animations */
-        .boy-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0;
-            border-radius: 15px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 2px solid #000;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem auto;
+            max-width: 700px;
             perspective: 1000px;
+        }
+
+        .about-card {
+            position: relative;
+            height: 180px;
             cursor: pointer;
-            height: 280px;
-            position: relative;
-        }
-
-        .boy-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            background: #c8d6e5;
-        }
-
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
             transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .boy-card.flipped .card-inner {
-            transform: rotateY(180deg);
+        .about-card.flipped {
+            transform: rotateY(180deg) scale(1.15);
+            z-index: 10;
+            height: 220px;
         }
 
-        .card-front,
-        .card-back {
+        .card-face {
             position: absolute;
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
-            border-radius: 15px;
-            padding: 1.5rem;
-            top: 0;
-            left: 0;
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         .card-front {
-            background: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, var(--blush) 0%, var(--peach) 100%);
+            border: 2px solid var(--soft-coral);
         }
 
         .card-back {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, var(--seafoam) 0%, var(--dusty-blue) 100%);
             transform: rotateY(180deg);
+            color: var(--charcoal);
+            border: 2px solid var(--dusty-blue);
         }
 
-        .boy-card h3 {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            color: #000;
-            font-size: 1.3rem;
-            font-weight: 600;
+        .about-card:hover:not(.flipped) .card-front {
+            transform: translateZ(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-icon {
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            letter-spacing: -0.01em;
+        }
+
+        .about-card h3 {
+            font-size: 1rem;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .about-card p {
+            font-size: 0.85rem;
+            color: var(--charcoal);
+            line-height: 1.4;
+        }
+
+        .card-image-slot {
+            width: 80px;
+            height: 80px;
+            border: 2px dashed var(--white);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Chicken Grid - Bento Box Layout */
+        .boys-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin: 2rem auto;
+            max-width: 320px;
+            padding: 1rem;
+        }
+
+        @media (min-width: 500px) {
+            .boys-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 420px;
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .boys-grid {
+                max-width: 500px;
+                gap: 1.2rem;
+            }
+        }
+
+        /* Neumorphic chicken cards */
+        .boy-card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            padding: 1.2rem 0.8rem;
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow:
+                8px 8px 16px rgba(0, 0, 0, 0.1),
+                -8px -8px 16px rgba(255, 255, 255, 0.5),
+                inset 0 0 0 1px rgba(255, 181, 167, 0.1);
+        }
+
+        .boy-card:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                12px 12px 24px rgba(0, 0, 0, 0.15),
+                -12px -12px 24px rgba(255, 255, 255, 0.6),
+                inset 0 0 0 2px rgba(255, 181, 167, 0.3);
+            background: linear-gradient(145deg, #ffffff, #ffebe7);
+        }
+
+        .boy-card:active {
+            box-shadow:
+                inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+            transform: translateY(0);
         }
 
         .chicken-emoji {
             font-size: 2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.4rem;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
         }
 
-        .chicken-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            border: 3px solid #000;
+        .chicken-emoji:hover {
+            transform: scale(1.15) rotate(5deg);
+            filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.15));
         }
 
-        /* Modern Order Form Styles */
-        .order-form {
+        .chicken-emoji.expanded {
+            font-size: 3rem;
+            animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .boy-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        .boy-card p {
+            font-size: 0.75rem;
+            color: var(--terracotta);
+            font-style: italic;
+            line-height: 1.2;
+            display: none;
+            margin-top: 0.3rem;
+        }
+
+        /* Expanded chicken modal with glass effect */
+        .boy-card.expanded {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            padding: 2rem;
+            z-index: 1000;
             background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.25),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 181, 167, 0.3);
+            border-radius: 24px;
+        }
+
+        .boy-card.expanded p {
+            display: block;
+            margin-top: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .chicken-image-slot {
+            width: 150px;
+            height: 150px;
+            border: 2px dashed rgba(255, 181, 167, 0.5);
+            border-radius: 16px;
+            margin: 1rem auto;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.5), rgba(255, 181, 167, 0.1));
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            box-shadow:
+                inset 2px 2px 4px rgba(0, 0, 0, 0.05),
+                inset -2px -2px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        .boy-card.expanded .chicken-image-slot {
+            display: flex;
+        }
+
+        .boy-card.expanded .chicken-image-slot {
+            display: flex;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.6);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Order Form */
+        .order-form {
+            background: var(--white);
             padding: 0;
-            border-radius: 20px;
-            margin-top: 2rem;
-            border: 2px solid #000;
+            border-radius: 12px;
+            margin: 2rem auto;
+            border: 1px solid var(--sand);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         .form-progress {
-            background: linear-gradient(135deg, #000 0%, #333 100%);
-            color: #c8d6e5;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--ocean-blue) 100%);
+            color: var(--white);
             padding: 1.5rem;
             text-align: center;
             font-weight: 600;
@@ -477,7 +746,7 @@
         .progress-bar {
             width: 100%;
             height: 6px;
-            background: rgba(200, 214, 229, 0.3);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 3px;
             margin-top: 1rem;
             overflow: hidden;
@@ -485,48 +754,28 @@
 
         .progress-fill {
             height: 100%;
-            background: #c8d6e5;
+            background: var(--white);
             width: 0%;
             border-radius: 3px;
             transition: width 0.5s ease;
         }
 
         .form-sections {
-            padding: 2rem;
-            display: grid;
-            gap: 2rem;
+            padding: 1.5rem;
         }
 
         .form-section {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .form-section:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
         }
 
         .form-section h3 {
-            margin-bottom: 1.5rem;
-            color: #000;
-            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+            font-size: 1.1rem;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            letter-spacing: -0.01em;
+            text-align: center;
         }
 
-        .section-icon {
-            font-size: 1.3rem;
-        }
-
-        /* Floating Label Input */
         .floating-label {
             position: relative;
             margin-bottom: 1.5rem;
@@ -534,26 +783,19 @@
 
         .floating-input {
             width: 100%;
-            padding: 20px 16px 8px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
+            padding: 16px;
+            border: 2px solid var(--sand);
+            border-radius: 8px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--white);
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
         }
 
         .floating-input:focus {
             outline: none;
-            border-color: #000;
-            background: #c8d6e5;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .floating-input:valid {
-            border-color: #28a745;
-            background: rgba(40, 167, 69, 0.05);
+            border-color: var(--ocean-blue);
+            box-shadow: 0 0 0 3px rgba(91, 146, 162, 0.1);
         }
 
         .floating-label label {
@@ -561,300 +803,78 @@
             left: 16px;
             top: 50%;
             transform: translateY(-50%);
-            color: #666;
+            color: var(--driftwood);
             font-size: 1rem;
             transition: all 0.3s ease;
             pointer-events: none;
-            font-weight: 500;
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--white);
             padding: 0 4px;
         }
 
         .floating-input:focus+label,
         .floating-input:not(:placeholder-shown)+label {
             top: 0;
-            transform: translateY(-50%);
-            font-size: 0.75rem;
-            color: #000;
-            font-weight: 600;
+            transform: translateY(-50%) scale(0.85);
+            color: var(--ocean-blue);
         }
 
-        .floating-input:valid+label {
-            color: #28a745;
-        }
-
-        /* Modern Select */
-        .modern-select {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-
-        .modern-select select {
-            width: 100%;
-            padding: 16px 16px 16px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            appearance: none;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .modern-select select:focus {
-            outline: none;
-            border-color: #000;
-            background: #c8d6e5;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .modern-select::after {
-            content: '▼';
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none;
-            transition: transform 0.3s ease;
-            color: #666;
-        }
-
-        .modern-select:hover::after {
-            transform: translateY(-50%) rotate(180deg);
-        }
-
-        .modern-select label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #000;
-            font-size: 0.9rem;
-        }
-
-        /* Modern Textarea */
-        .modern-textarea {
-            position: relative;
-            margin-bottom: 1.5rem;
-        }
-
-        .modern-textarea textarea {
+        select,
+        textarea {
             width: 100%;
             padding: 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
+            border: 2px solid var(--sand);
+            border-radius: 8px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--white);
             transition: all 0.3s ease;
-            resize: vertical;
-            min-height: 100px;
             font-family: 'Inter', sans-serif;
         }
 
-        .modern-textarea textarea:focus {
+        select:focus,
+        textarea:focus {
             outline: none;
-            border-color: #000;
-            background: #c8d6e5;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: var(--ocean-blue);
+            box-shadow: 0 0 0 3px rgba(91, 146, 162, 0.1);
         }
 
-        .modern-textarea label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #000;
-            font-size: 0.9rem;
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238B7355' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
         }
 
-        /* Modern Submit Button */
         .modern-submit {
-            background: linear-gradient(135deg, #000 0%, #333 100%);
-            color: #c8d6e5;
-            padding: 20px 30px;
+            background: var(--coral);
+            color: var(--white);
+            padding: 16px 24px;
             border: none;
             border-radius: 25px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             width: 100%;
-            position: relative;
-            overflow: hidden;
             margin-top: 1rem;
             font-family: 'Inter', sans-serif;
-            letter-spacing: -0.01em;
-        }
-
-        .modern-submit::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(200, 214, 229, 0.2), transparent);
-            transition: left 0.6s;
-        }
-
-        .modern-submit:hover::before {
-            left: 100%;
         }
 
         .modern-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(135deg, #333 0%, #000 100%);
-        }
-
-        .modern-submit:active {
-            transform: translateY(-1px);
-        }
-
-        /* Loading state */
-        .modern-submit.loading {
-            pointer-events: none;
-            opacity: 0.7;
-        }
-
-        .modern-submit.loading::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            margin: auto;
-            border: 2px solid transparent;
-            border-top-color: #c8d6e5;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(232, 168, 124, 0.4);
         }
 
         /* Footer */
         footer {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 2rem 0;
+            background: var(--white);
+            padding: 2rem 1rem;
             text-align: center;
             margin-top: 2rem;
+            border-top: 1px solid var(--sand);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-            }
-
-            .header-content {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            /* Prevent body scroll when menu is open */
-            body.mobile-menu-open {
-                overflow: hidden;
-            }
-
-            header {
-                padding: 1rem 0;
-            }
-
-            .logo-image {
-                width: 80px;
-                height: 80px;
-            }
-
-            .brand-name {
-                font-size: 1.6rem;
-            }
-
-            .brand-tagline {
-                font-size: 0.75rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .main-content {
-                padding: 1.5rem;
-                margin: 1rem;
-            }
-
-            .form-sections {
-                padding: 1rem;
-                gap: 1rem;
-            }
-
-            .form-section {
-                padding: 1rem;
-            }
-
-            .floating-input {
-                padding: 18px 14px 6px 14px;
-            }
-        }
-
-        @media (min-width: 769px) {
-
-            .mobile-menu-btn,
-            .mobile-nav,
-            .mobile-nav-overlay {
-                display: none !important;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                gap: 15px;
-            }
-
-            .brand-name {
-                font-size: 1.4rem;
-            }
-
-            .brand-tagline {
-                font-size: 0.7rem;
-            }
-        }
-
-        /* Add smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Animations */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .chicken-emoji {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Modal Styles */
+        /* Success Modal */
         .modal {
             display: none;
             position: fixed;
@@ -863,406 +883,335 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
+            background-color: rgba(44, 62, 80, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 20px;
         }
 
         .modal-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 10% auto;
+            background: var(--white);
+            margin: 20% auto;
             padding: 0;
-            border: none;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            animation: modalSlideIn 0.4s ease-out;
-            overflow: hidden;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            animation: modalSlideIn 0.5s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
 
         @keyframes modalSlideIn {
             from {
+                transform: translateY(-50px);
                 opacity: 0;
-                transform: translateY(-50px) scale(0.9);
             }
 
             to {
+                transform: translateY(0);
                 opacity: 1;
-                transform: translateY(0) scale(1);
             }
         }
 
         .modal-header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
+            background: var(--sea-glass);
+            padding: 1.5rem;
             text-align: center;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .modal-header .success-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            display: block;
-            animation: bounce 0.6s ease-in-out;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-20px);
-            }
-
-            60% {
-                transform: translateY(-10px);
-            }
+            border-radius: 12px 12px 0 0;
         }
 
         .modal-header h2 {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            color: #2c3e50;
-            margin: 0;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            color: var(--navy);
         }
 
-        .modal-body {
-            padding: 2rem;
-            color: white;
-            text-align: center;
-            line-height: 1.6;
-            font-family: 'Inter', sans-serif;
+        .success-icon {
+            font-size: 2.5rem;
         }
 
-        .modal-body p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .farm-info {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin: 1.5rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .farm-info h3 {
-            margin: 0 0 0.5rem 0;
-            color: #ffffff;
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .farm-info p {
-            margin: 0;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-        }
-
-        .close-btn {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-            min-width: 150px;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: -0.01em;
-        }
-
-        .close-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(238, 90, 36, 0.3);
-        }
-
-        .close-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Responsive modal */
-        @media (max-width: 600px) {
-            .modal-content {
-                margin: 5% auto;
-                width: 95%;
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            .header-content {
+                padding: 0 20px;
             }
 
-            .modal-header,
-            .modal-body {
-                padding: 1.5rem;
+            .brand-name {
+                font-size: 1.8rem;
             }
 
-            .modal-header .success-icon {
+            .brand-tagline {
+                display: block;
+            }
+
+            .logo-image {
+                width: 60px;
+                height: 60px;
+            }
+
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none !important;
+            }
+
+            .desktop-nav {
+                display: block;
+            }
+
+            .desktop-nav ul {
+                display: flex;
+                list-style: none;
+                gap: 1.5rem;
+                align-items: center;
+                margin: 0;
+            }
+
+            .desktop-nav a {
+                text-decoration: none;
+                color: var(--navy);
+                font-weight: 500;
+                padding: 8px 16px;
+                border-radius: 20px;
+                transition: all 0.3s ease;
+            }
+
+            .desktop-nav a:hover {
+                background: var(--sand);
+            }
+
+            .desktop-order-btn {
+                background: var(--coral);
+                color: var(--white) !important;
+                font-weight: 600;
+            }
+
+            .hero {
+                padding: 3rem 2rem;
+            }
+
+            .hero h1 {
                 font-size: 3rem;
             }
 
-            .modal-header h2 {
-                font-size: 1.5rem;
+            .hero p {
+                font-size: 1.2rem;
             }
+
+            .main-content {
+                padding: 3rem;
+            }
+
+            .section h2 {
+                font-size: 2.5rem;
+            }
+
+            .about-cards {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+            }
+
+            .form-sections {
+                padding: 2rem;
+            }
+        }
+
+        /* Loading state */
+        .loading {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
     </style>
 </head>
 
 <body>
-    <!-- Updated Header HTML with Mobile Navigation -->
+    <!-- Subtle Beach Elements -->
+    <div class="bg-animation" id="bgAnimation"></div>
+
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="logo-main.png" alt="The Couture Boys Coop Logo" class="logo-image">
-                    <div class="brand-info">
-                        <div class="brand-name">The Couture Boys Coop</div>
-                        <div class="brand-tagline">Fresh Farm Eggs • Westhampton, NY</div>
-                    </div>
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo-main.png" alt="The Couture Boys Coop Logo" class="logo-image">
+                <div class="brand-info">
+                    <div class="brand-name">The Couture Boys Coop</div>
+                    <div class="brand-tagline">Fresh Farm Eggs • Westhampton, NY</div>
                 </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="desktop-nav">
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#boys">Meet Our Flock</a></li>
-                        <li><a href="#order">Order Eggs</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#order" class="order-btn">Order Now</a></li>
-                    </ul>
-                </nav>
-
-                <!-- Mobile Hamburger Button -->
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
             </div>
+
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#boys">Our Flock</a></li>
+                    <li><a href="#order">Order</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#order" class="desktop-order-btn">Order Now</a></li>
+                </ul>
+            </nav>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
-
-        <!-- Mobile Navigation Overlay -->
-        <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileMenu()"></div>
-
-        <!-- Mobile Navigation Menu -->
-        <nav class="mobile-nav" id="mobileNav">
-            <div class="mobile-nav-header">
-                <div class="mobile-brand">The Couture Boys Coop</div>
-                <button class="mobile-close-btn" onclick="closeMobileMenu()" aria-label="Close mobile menu">
-                    <span class="close-line"></span>
-                    <span class="close-line"></span>
-                </button>
-            </div>
-            <ul class="mobile-nav-links">
-                <li><a href="#about" onclick="closeMobileMenu()">About Our Farm</a></li>
-                <li><a href="#boys" onclick="closeMobileMenu()">Meet Our Flock</a></li>
-                <li><a href="#order" onclick="closeMobileMenu()">Order Fresh Eggs</a></li>
-                <li><a href="#contact" onclick="closeMobileMenu()">Contact Us</a></li>
-                <li><a href="#order" class="mobile-order-btn" onclick="closeMobileMenu()">Order Now</a></li>
-            </ul>
-            <div class="mobile-nav-footer">
-                <p>Fresh Farm Eggs Daily</p>
-                <p>Westhampton, NY</p>
-            </div>
-        </nav>
     </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="#about" onclick="toggleMobileMenu()">About</a></li>
+            <li><a href="#boys" onclick="toggleMobileMenu()">Our Flock</a></li>
+            <li><a href="#order" onclick="toggleMobileMenu()">Order</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">Contact</a></li>
+            <li><a href="#order" class="mobile-order-btn" onclick="toggleMobileMenu()">Order Now</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
         <section class="hero">
             <h1>Fresh Farm Eggs Daily</h1>
-            <p>Brothers Beau & Ronan Couture and their 14 chickens with personality, delivering the freshest eggs in
-                Westhampton, NY</p>
+            <p>Brothers Beau & Ronan Couture and their 14 chickens delivering the freshest eggs in Westhampton</p>
             <a href="#order" class="order-btn">Get Your Fresh Eggs</a>
         </section>
 
         <main class="main-content">
             <section id="about" class="section">
                 <h2>About Our Farm</h2>
-                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Welcome to The Couture Boys Coop!
-                    We're a family-operated chicken farm in beautiful Westhampton, NY, run by brothers Beau and Ronan
-                    Couture. Our 14 beloved chickens each have their own personality and provide the freshest, most
-                    delicious eggs you'll find on Long Island.</p>
+                <p
+                    style="font-size: 1rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; color: var(--driftwood);">
+                    Welcome to The Couture Boys Coop! We're a family-operated chicken farm run by brothers Beau and
+                    Ronan in beautiful Westhampton, NY.
+                </p>
 
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🥚</div>
-                        <h3 style="color: #000; margin-bottom: 1rem;">Fresh Daily</h3>
-                        <p>Collected fresh every morning for maximum flavor and nutrition</p>
+                <div class="about-cards">
+                    <div class="about-card" onclick="flipCard(this)">
+                        <div class="card-face card-front">
+                            <div class="about-icon">🏡</div>
+                            <h3>Home Farm</h3>
+                            <p>Family-run</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-image-slot">📷</div>
+                            <h3>Our Home</h3>
+                            <p>A small family farm in the heart of Westhampton</p>
+                        </div>
                     </div>
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🌱</div>
-                        <h3 style="color: #000; margin-bottom: 1rem;">Free Range</h3>
-                        <p>Our chickens roam freely and eat a natural, healthy diet</p>
+
+                    <div class="about-card" onclick="flipCard(this)">
+                        <div class="card-face card-front">
+                            <div class="about-icon">🥚</div>
+                            <h3>Fresh Daily</h3>
+                            <p>Collected morning</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-image-slot">📷</div>
+                            <h3>Daily Fresh</h3>
+                            <p>Hand-collected every morning for peak freshness</p>
+                        </div>
                     </div>
-                    <div style="text-align: center; padding: 1.5rem;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">❤️</div>
-                        <h3 style="color: #000; margin-bottom: 1rem;">Loved & Cared For</h3>
-                        <p>Each chicken has a name and receives individual attention</p>
+
+                    <div class="about-card" onclick="flipCard(this)">
+                        <div class="card-face card-front">
+                            <div class="about-icon">🌱</div>
+                            <h3>Free Range</h3>
+                            <p>Natural diet</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-image-slot">📷</div>
+                            <h3>Happy Hens</h3>
+                            <p>Our chickens roam freely with a natural diet</p>
+                        </div>
+                    </div>
+
+                    <div class="about-card" onclick="flipCard(this)">
+                        <div class="card-face card-front">
+                            <div class="about-icon">👦</div>
+                            <h3>The Boys</h3>
+                            <p>Beau & Ronan</p>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-image-slot">📷</div>
+                            <h3>Meet Us</h3>
+                            <p>Brothers caring for our flock with love daily</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section id="boys" class="section">
                 <h2>Meet Our Flock</h2>
-                <p style="text-align: center; margin-bottom: 2rem; font-style: italic;">Our famous flock of 14 chickens,
-                    each with their own unique personality - lovingly cared for by Beau & Ronan</p>
+                <p style="margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--driftwood);">
+                    Tap any chicken to meet them properly! 🐔
+                </p>
 
                 <div class="boys-grid">
-                    <div class="boy-card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="chicken-emoji">🐔</div>
-                                <h3>Moon Walker</h3>
-                                <p>Our mysterious night owl who loves to strut under the moonlight</p>
-                            </div>
-                            <div class="card-back">
-                                <img src="https://picsum.photos/120/120?random=1" alt="Moon Walker"
-                                    class="chicken-photo">
-                                <h3>Moon Walker</h3>
-                                <p>Click to flip back</p>
-                            </div>
-                        </div>
+                    <div class="boy-card" onclick="expandChicken(this)">
+                        <div class="chicken-emoji">🐔</div>
+                        <h3>Moon Walker</h3>
+                        <p>Our mysterious night owl</p>
+                        <div class="chicken-image-slot">Photo Coming</div>
                     </div>
 
-                    <div class="boy-card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="chicken-emoji">🐓</div>
-                                <h3>Whitney Houston</h3>
-                                <p>The diva of the coop with the most beautiful morning songs</p>
-                            </div>
-                            <div class="card-back">
-                                <img src="https://picsum.photos/120/120?random=2" alt="Whitney Houston"
-                                    class="chicken-photo">
-                                <h3>Whitney Houston</h3>
-                                <p>Click to flip back</p>
-                            </div>
-                        </div>
+                    <div class="boy-card" onclick="expandChicken(this)">
+                        <div class="chicken-emoji">🐓</div>
+                        <h3>Whitney</h3>
+                        <p>The diva with beautiful songs</p>
+                        <div class="chicken-image-slot">Photo Coming</div>
                     </div>
 
-                    <div class="boy-card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="chicken-emoji">🐔</div>
-                                <h3>Goldie Hawn</h3>
-                                <p>Golden feathers and a sunny disposition that lights up the farm</p>
-                            </div>
-                            <div class="card-back">
-                                <img src="https://picsum.photos/120/120?random=3" alt="Goldie Hawn"
-                                    class="chicken-photo">
-                                <h3>Goldie Hawn</h3>
-                                <p>Click to flip back</p>
-                            </div>
-                        </div>
+                    <div class="boy-card" onclick="expandChicken(this)">
+                        <div class="chicken-emoji">🐔</div>
+                        <h3>Goldie</h3>
+                        <p>Golden feathers, sunny disposition</p>
+                        <div class="chicken-image-slot">Photo Coming</div>
                     </div>
 
-                    <div class="boy-card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="chicken-emoji">🐓</div>
-                                <h3>Ursula</h3>
-                                <p>The gentle giant with the biggest heart in the coop</p>
-                            </div>
-                            <div class="card-back">
-                                <img src="https://picsum.photos/120/120?random=4" alt="Ursula" class="chicken-photo">
-                                <h3>Ursula</h3>
-                                <p>Click to flip back</p>
-                            </div>
-                        </div>
+                    <div class="boy-card" onclick="expandChicken(this)">
+                        <div class="chicken-emoji">🐓</div>
+                        <h3>Ursula</h3>
+                        <p>The gentle giant of the coop</p>
+                        <div class="chicken-image-slot">Photo Coming</div>
                     </div>
 
-                    <div class="boy-card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="chicken-emoji">🐔</div>
-                                <h3>Barbie</h3>
-                                <p>Pretty in pink (well, red) with impeccable style</p>
-                            </div>
-                            <div class="card-back">
-                                <img src="https://picsum.photos/120/120?random=5" alt="Barbie" class="chicken-photo">
-                                <h3>Barbie</h3>
-                                <p>Click to flip back</p>
-                            </div>
-                        </div>
+                    <div class="boy-card" onclick="expandChicken(this)">
+                        <div class="chicken-emoji">🐔</div>
+                        <h3>Barbie</h3>
+                        <p>Pretty with impeccable style</p>
+                        <div class="chicken-image-slot">Photo Coming</div>
                     </div>
 
-                    <div class="boy-card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="chicken-emoji">🐓</div>
-                                <h3>Peggy</h3>
-                                <p>The sharpest hen with the best aim for the nesting boxes</p>
-                            </div>
-                            <div class="card-back">
-                                <img src="https://picsum.photos/120/120?random=6" alt="Peggy" class="chicken-photo">
-                                <h3>Peggy</h3>
-                                <p>Click to flip back</p>
-                            </div>
-                        </div>
+                    <div class="boy-card" onclick="expandChicken(this)">
+                        <div class="chicken-emoji">🐓</div>
+                        <h3>Peggy</h3>
+                        <p>The sharpest hen around</p>
+                        <div class="chicken-image-slot">Photo Coming</div>
                     </div>
 
-                    <div class="boy-card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="chicken-emoji">🐔</div>
-                                <h3>Milk Flyer</h3>
-                                <p>The adventurous one who dreams of flying beyond the fence</p>
-                            </div>
-                            <div class="card-back">
-                                <img src="https://picsum.photos/120/120?random=7" alt="Milk Flyer"
-                                    class="chicken-photo">
-                                <h3>Milk Flyer</h3>
-                                <p>Click to flip back</p>
-                            </div>
-                        </div>
+                    <div class="boy-card" onclick="expandChicken(this)">
+                        <div class="chicken-emoji">🐔</div>
+                        <h3>Milk Flyer</h3>
+                        <p>The adventurous dreamer</p>
+                        <div class="chicken-image-slot">Photo Coming</div>
                     </div>
 
-                    <div class="boy-card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="chicken-emoji">🐓</div>
-                                <h3>Millie</h3>
-                                <p>Sweet as milk and twice as charming</p>
-                            </div>
-                            <div class="card-back">
-                                <img src="https://picsum.photos/120/120?random=8" alt="Millie" class="chicken-photo">
-                                <h3>Millie</h3>
-                                <p>Click to flip back</p>
-                            </div>
-                        </div>
+                    <div class="boy-card" onclick="expandChicken(this)">
+                        <div class="chicken-emoji">🐓</div>
+                        <h3>Millie</h3>
+                        <p>Sweet as milk and charming</p>
+                        <div class="chicken-image-slot">Photo Coming</div>
                     </div>
 
-                    <div class="boy-card" onclick="flipCard(this)">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <div class="chicken-emoji">🐔</div>
-                                <h3>GOODIE</h3>
-                                <p>The goodest chicken who never causes any trouble</p>
-                            </div>
-                            <div class="card-back">
-                                <img src="https://picsum.photos/120/120?random=9" alt="GOODIE" class="chicken-photo">
-                                <h3>GOODIE</h3>
-                                <p>Click to flip back</p>
-                            </div>
-                        </div>
+                    <div class="boy-card" onclick="expandChicken(this)">
+                        <div class="chicken-emoji">🐔</div>
+                        <h3>GOODIE</h3>
+                        <p>The goodest chicken ever</p>
+                        <div class="chicken-image-slot">Photo Coming</div>
                     </div>
                 </div>
             </section>
 
             <section id="order" class="section">
                 <h2>Order Fresh Eggs</h2>
-                <p style="text-align: center; margin-bottom: 2rem;">Ready to taste the difference? Order your fresh eggs
-                    today and join our growing list of satisfied customers!</p>
 
                 <div class="order-form">
                     <div class="form-progress">
@@ -1275,7 +1224,7 @@
 
                     <form id="orderForm" class="form-sections">
                         <div class="form-section">
-                            <h3><span class="section-icon">👤</span>Your Information</h3>
+                            <h3>👤 Your Information</h3>
 
                             <div class="floating-label">
                                 <input type="text" id="name" name="name" class="floating-input" placeholder=" "
@@ -1291,56 +1240,52 @@
 
                             <div class="floating-label">
                                 <input type="tel" id="phone" name="phone" class="floating-input" placeholder=" ">
-                                <label for="phone">Phone Number (Optional)</label>
+                                <label for="phone">Phone (Optional)</label>
                             </div>
                         </div>
 
                         <div class="form-section">
-                            <h3><span class="section-icon">🥚</span>Your Order</h3>
+                            <h3>🥚 Your Order</h3>
 
-                            <div class="modern-select">
-                                <label for="quantity">Number of Dozen</label>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--navy);">Number
+                                    of Dozen</label>
                                 <select id="quantity" name="quantity" required>
                                     <option value="">Select quantity</option>
                                     <option value="1">1 Dozen - $6</option>
-                                    <option value="2">2 Dozen - $11 (Save $1!)</option>
-                                    <option value="3">3 Dozen - $15 (Save $3!)</option>
-                                    <option value="4">4+ Dozen - Contact us for pricing</option>
+                                    <option value="2">2 Dozen - $11</option>
+                                    <option value="3">3 Dozen - $15</option>
+                                    <option value="4">4+ Dozen - Contact</option>
                                 </select>
                             </div>
 
-                            <div class="modern-select">
-                                <label for="delivery">Delivery Method</label>
+                            <div style="margin-bottom: 1.5rem;">
+                                <label
+                                    style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--navy);">Delivery
+                                    Method</label>
                                 <select id="delivery" name="delivery" required>
-                                    <option value="">Choose delivery option</option>
-                                    <option value="pickup">🚗 Farm Pickup (Free)</option>
-                                    <option value="local">🚚 Local Delivery (+$2)</option>
+                                    <option value="">Choose option</option>
+                                    <option value="pickup">Farm Pickup (Free)</option>
+                                    <option value="local">Local Delivery (+$2)</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-section" id="deliverySection" style="display: none;">
-                            <h3><span class="section-icon">📍</span>Delivery Details</h3>
-
-                            <div class="modern-textarea">
-                                <label for="address">Delivery Address</label>
-                                <textarea id="address" name="address"
-                                    placeholder="Enter your full address including street, city, and zip code"></textarea>
-                            </div>
+                            <h3>📍 Delivery Details</h3>
+                            <textarea id="address" name="address" placeholder="Enter your full address"
+                                style="min-height: 80px;"></textarea>
                         </div>
 
                         <div class="form-section">
-                            <h3><span class="section-icon">💭</span>Special Requests</h3>
-
-                            <div class="modern-textarea">
-                                <label for="notes">Additional Notes (Optional)</label>
-                                <textarea id="notes" name="notes"
-                                    placeholder="Any special requests, preferred delivery times, or questions for Beau & Ronan?"></textarea>
-                            </div>
+                            <h3>💭 Special Requests</h3>
+                            <textarea id="notes" name="notes" placeholder="Any special requests?"
+                                style="min-height: 60px;"></textarea>
                         </div>
 
                         <button type="submit" class="modern-submit">
-                            <span>🥚 Place Your Order</span>
+                            Place Your Order
                         </button>
                     </form>
                 </div>
@@ -1348,16 +1293,16 @@
 
             <section id="contact" class="section">
                 <h2>Contact Us</h2>
-                <div style="text-align: center;">
-                    <p style="font-size: 1.2rem; margin-bottom: 1rem;">📍 Westhampton, NY</p>
-                    <p style="font-size: 1.1rem; margin-bottom: 1rem;">📧 Email us for availability and orders</p>
-                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">🥚 Fresh eggs collected daily</p>
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <p style="margin-bottom: 1rem; color: var(--driftwood);">📍 Westhampton, NY</p>
+                    <p style="margin-bottom: 1rem; color: var(--driftwood);">📧 Email for availability</p>
+                    <p style="margin-bottom: 2rem; color: var(--driftwood);">🥚 Fresh eggs daily</p>
                     <div
-                        style="background: rgba(255, 255, 255, 0.9); padding: 2rem; border-radius: 15px; margin-top: 2rem; border: 2px solid #000;">
-                        <h3 style="color: #000; margin-bottom: 1rem;">Current Availability</h3>
-                        <p style="font-size: 1.1rem;">✅ We're currently taking steady orders!</p>
-                        <p style="margin-top: 1rem;">Our 14 chickens are laying consistently, ensuring fresh eggs are
-                            available for our customers.</p>
+                        style="background: var(--sand); padding: 1.5rem; border-radius: 12px; border: 2px solid var(--coral);">
+                        <h3 style="color: var(--navy); margin-bottom: 0.5rem; font-size: 1.1rem;">Currently Taking
+                            Orders!</h3>
+                        <p style="font-size: 0.9rem; color: var(--driftwood);">Our 14 chickens are laying consistently!
+                        </p>
                     </div>
                 </div>
             </section>
@@ -1366,95 +1311,100 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 The Couture Boys Coop - Fresh Farm Eggs in Westhampton, NY</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">🏖️🥚 Fresh farm eggs for Hamptons families
-            </p>
+            <p style="color: var(--navy);">&copy; 2025 The Couture Boys Coop</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--driftwood);">Fresh farm eggs • Westhampton,
+                NY</p>
         </div>
     </footer>
 
+    <!-- Overlay for expanded chicken cards -->
+    <div class="overlay" id="overlay" onclick="closeExpandedChicken()"></div>
+
+    <!-- Success Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="success-icon">🎉</span>
+                <h2>Order Sent!</h2>
+            </div>
+            <div style="padding: 1.5rem; text-align: center;">
+                <p style="color: var(--navy); font-weight: 600;">Thank you!</p>
+                <p style="margin: 1rem 0; font-size: 0.9rem; color: var(--driftwood);">Beau & Ronan will contact you
+                    within 24 hours.</p>
+                <button onclick="closeModal()"
+                    style="background: var(--coral); color: white; border: none; padding: 10px 20px; border-radius: 20px; font-weight: 600; cursor: pointer; margin-top: 0.5rem;">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Initialize EmailJS with your public key
+        // Initialize EmailJS
         emailjs.init("BOXq_OTRxp6p170Eu");
 
-        // Mobile Navigation Functions
+        // Mobile menu toggle
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
-            const overlay = document.getElementById('mobileNavOverlay');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const body = document.body;
+            const hamburger = document.querySelector('.mobile-menu-btn');
 
-            // Toggle active classes
             mobileNav.classList.toggle('active');
-            overlay.classList.toggle('active');
-            menuBtn.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
 
-            // Prevent body scroll when menu is open
-            if (mobileNav.classList.contains('active')) {
-                body.classList.add('mobile-menu-open');
-            } else {
-                body.classList.remove('mobile-menu-open');
+        // Create subtle beach elements
+        function createBackgroundElements() {
+            const bgAnimation = document.getElementById('bgAnimation');
+            const elements = ['🐚', '⚓', '🌊', '☀️'];
+
+            for (let i = 0; i < 6; i++) {
+                const element = document.createElement('div');
+                element.className = 'beach-element';
+                element.innerHTML = elements[i % elements.length];
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.animationDelay = Math.random() * 20 + 's';
+                bgAnimation.appendChild(element);
             }
         }
 
-        function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const overlay = document.getElementById('mobileNavOverlay');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const body = document.body;
-
-            // Remove active classes
-            mobileNav.classList.remove('active');
-            overlay.classList.remove('active');
-            menuBtn.classList.remove('active');
-            body.classList.remove('mobile-menu-open');
+        // Flip about cards
+        function flipCard(card) {
+            card.classList.toggle('flipped');
         }
 
-        // Enhanced Form handling with EmailJS - CORRECTED TEMPLATE ID
-        document.getElementById('orderForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+        // Chicken card expansion
+        let currentExpanded = null;
 
-            // Add loading state
-            const submitBtn = document.querySelector('.modern-submit');
-            submitBtn.classList.add('loading');
-            submitBtn.innerHTML = '';
+        function expandChicken(card) {
+            const overlay = document.getElementById('overlay');
 
-            // Collect form data
-            const formData = new FormData(this);
-            const orderData = {
-                from_name: formData.get('name'),
-                reply_to: formData.get('email'),
-                phone: formData.get('phone') || 'Not provided',
-                quantity: formData.get('quantity'),
-                delivery: formData.get('delivery'),
-                address: formData.get('address') || 'N/A (Pickup)',
-                notes: formData.get('notes') || 'None',
-                order_time: new Date().toLocaleString()
-            };
+            if (currentExpanded === card) {
+                closeExpandedChicken();
+                return;
+            }
 
-            // Send email via EmailJS - FIXED TEMPLATE ID
-            emailjs.send('service_b314v98', 'template_9d190rd', orderData)
-                .then(function () {
-                    // Success!
-                    showOrderConfirmation();
+            if (currentExpanded) {
+                currentExpanded.classList.remove('expanded');
+                currentExpanded.querySelector('.chicken-emoji').classList.remove('expanded');
+            }
 
-                    // Reset form and button
-                    document.getElementById('orderForm').reset();
-                    updateProgress();
-                    submitBtn.classList.remove('loading');
-                    submitBtn.innerHTML = '<span>🥚 Place Your Order</span>';
-                })
-                .catch(function (error) {
-                    // Error handling
-                    console.error('EmailJS Error:', error);
-                    alert('😔 Oops! Something went wrong. Please try again or contact us directly.');
+            card.classList.add('expanded');
+            card.querySelector('.chicken-emoji').classList.add('expanded');
+            overlay.classList.add('active');
+            currentExpanded = card;
+        }
 
-                    // Reset button
-                    submitBtn.classList.remove('loading');
-                    submitBtn.innerHTML = '<span>🥚 Place Your Order</span>';
-                });
-        });
+        function closeExpandedChicken() {
+            if (currentExpanded) {
+                currentExpanded.classList.remove('expanded');
+                currentExpanded.querySelector('.chicken-emoji').classList.remove('expanded');
+                currentExpanded = null;
+            }
+            document.getElementById('overlay').classList.remove('active');
+        }
 
-        // Progress tracking
+        // Form Progress
         function updateProgress() {
             const form = document.getElementById('orderForm');
             const inputs = form.querySelectorAll('input[required], select[required]');
@@ -1471,13 +1421,17 @@
             const progress = (filledInputs / inputs.length) * 100;
             progressFill.style.width = progress + '%';
             progressText.textContent = Math.round(progress) + '% Complete';
+
+            if (progress === 100) {
+                progressText.innerHTML = '✅ Ready!';
+            }
         }
 
         // Real-time progress updates
         document.getElementById('orderForm').addEventListener('input', updateProgress);
         document.getElementById('orderForm').addEventListener('change', updateProgress);
 
-        // Show/hide delivery section based on delivery method
+        // Delivery section toggle
         document.getElementById('delivery').addEventListener('change', function () {
             const deliverySection = document.getElementById('deliverySection');
             const addressField = document.getElementById('address');
@@ -1493,17 +1447,65 @@
             updateProgress();
         });
 
-        // Initialize progress on page load
-        document.addEventListener('DOMContentLoaded', function () {
-            updateProgress();
+        // Form submission
+        document.getElementById('orderForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const submitBtn = document.querySelector('.modern-submit');
+            submitBtn.classList.add('loading');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(this);
+            const orderData = {
+                from_name: formData.get('name'),
+                reply_to: formData.get('email'),
+                phone: formData.get('phone') || 'Not provided',
+                quantity: formData.get('quantity'),
+                delivery: formData.get('delivery'),
+                address: formData.get('address') || 'N/A (Pickup)',
+                notes: formData.get('notes') || 'None',
+                order_time: new Date().toLocaleString()
+            };
+
+            emailjs.send('service_b314v98', 'template_9d190rd', orderData)
+                .then(function () {
+                    showOrderConfirmation();
+                    document.getElementById('orderForm').reset();
+                    updateProgress();
+                    submitBtn.classList.remove('loading');
+                    submitBtn.textContent = 'Place Your Order';
+                    submitBtn.disabled = false;
+                })
+                .catch(function (error) {
+                    console.error('EmailJS Error:', error);
+                    alert('There was an issue. Please try again.');
+                    submitBtn.classList.remove('loading');
+                    submitBtn.textContent = 'Place Your Order';
+                    submitBtn.disabled = false;
+                });
         });
 
-        // Card flipping function
-        function flipCard(card) {
-            card.classList.toggle('flipped');
+        // Modal functions
+        function showOrderConfirmation() {
+            document.getElementById('orderModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
-        // Smooth scrolling for navigation links
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on outside click
+        window.onclick = function (event) {
+            const modal = document.getElementById('orderModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1517,89 +1519,12 @@
             });
         });
 
-        // Modal functions
-        function showOrderConfirmation() {
-            document.getElementById('orderModal').style.display = 'block';
-            // Prevent body scroll when modal is open
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('orderModal');
-            modal.style.display = 'none';
-            // Restore body scroll
-            document.body.style.overflow = '';
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function (event) {
-            const modal = document.getElementById('orderModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                const modal = document.getElementById('orderModal');
-                if (modal.style.display === 'block') {
-                    closeModal();
-                }
-
-                // Also close mobile menu if open
-                const mobileNav = document.getElementById('mobileNav');
-                if (mobileNav && mobileNav.classList.contains('active')) {
-                    closeMobileMenu();
-                }
-            }
-        });
-
-        // Handle window resize - close mobile menu if window gets larger
-        window.addEventListener('resize', function () {
-            if (window.innerWidth > 768) {
-                closeMobileMenu();
-            }
-        });
-
-        // Add click event listeners for mobile navigation after DOM loads
+        // Initialize on load
         document.addEventListener('DOMContentLoaded', function () {
-            // Close mobile menu when clicking on navigation links
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', function () {
-                    // Small delay to allow smooth scrolling to complete
-                    setTimeout(closeMobileMenu, 300);
-                });
-            });
+            createBackgroundElements();
+            updateProgress();
         });
     </script>
-    <!-- Order Confirmation Modal -->
-    <div id="orderModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="success-icon">🎉</span>
-                <h2>Order Sent Successfully!</h2>
-            </div>
-            <div class="modal-body">
-                <p><strong>Thank you for your order!</strong></p>
-
-                <div class="farm-info">
-                    <h3>🐔 The Couture Boys Coop</h3>
-                    <p>Beau & Ronan will contact you within 24 hours to confirm your fresh egg delivery and arrange
-                        pickup/delivery details.</p>
-                </div>
-
-                <p>📍 <strong>Westhampton, NY</strong><br>
-                    🥚 <strong>Fresh farm eggs daily</strong><br>
-                    ❤️ <strong>From our 14 beloved chickens</strong></p>
-
-                <button class="close-btn" onclick="closeModal()">
-                    Perfect! Close
-                </button>
-            </div>
-        </div>
-    </div>
 </body>
 
 </html>
